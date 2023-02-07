@@ -54,7 +54,17 @@
 <body class="bg-dark">
     <div class="container py-5">
 
-
+    <form method="get">
+            <div class="form-group d-flex gap-3">
+                <label class="text-light fs-4" for="parking">Parking</label>
+                <select class="form-control w-25 fs-4" id="parking" name="parking">
+                    <option value="">All</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary my-3 fs-4">Filter</button>
+        </form>
         <h1 class="text-light">Hotels</h1>
         <table class="table text-light fs-3">
             <thead>
@@ -65,6 +75,14 @@
                 </tr>
             </thead>
             <tbody>
+            <?php
+            $selected_parking = $_GET['parking'] ?? '';
+            if ($selected_parking !== '') {
+                $hotels = array_filter($hotels, function ($hotel) use ($selected_parking) {
+                    return $hotel['parking'] == (bool) $selected_parking;
+                });
+            }
+            ?>
                 <?php foreach ($hotels as $group_hotel) : ?>
                     <tr>
                         <?php foreach ($group_hotel as $key => $hotel) : ?>
