@@ -39,15 +39,42 @@
         ],
 
     ];
-
-/* Itero per ogni elemento dell'array */
-    foreach ($hotels as $group_hotel) {
-
-        /* Itero per ogni chiave degli array associativo */
-        foreach($group_hotel as $key => $hotel) {
-            echo "$key: $hotel <br>";
-        }
-    }
-
 ?>
 
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css' integrity='sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==' crossorigin='anonymous'/>
+    <title>Php Hotels</title>
+</head>
+<body class="bg-dark">
+    <div class="container py-5">
+
+        <h1 class="text-light">Hotels</h1>
+        <table class="table text-light fs-3">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Parking</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">Distance to center</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($hotels as $group_hotel) : ?>
+                    <tr>
+                        <?php foreach ($group_hotel as $key => $hotel) : ?>
+                            <th class="text-secondary"><?= $hotel ?></th>
+                        <?php endforeach ?>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
