@@ -54,15 +54,14 @@
 <body class="bg-dark">
     <div class="container py-5">
 
+
         <h1 class="text-light">Hotels</h1>
         <table class="table text-light fs-3">
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Parking</th>
-                    <th scope="col">Vote</th>
-                    <th scope="col">Distance to center</th>
+                    <?php foreach(array_keys($hotels[0]) as $key) : ?>
+                    <th scope="col"><?= $key ?></th>
+                    <?php endforeach ?>
                 </tr>
             </thead>
             <tbody>
