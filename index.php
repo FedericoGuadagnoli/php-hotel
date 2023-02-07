@@ -40,4 +40,14 @@
 
     ];
 
+/* Itero per ogni elemento dell'array */
+    foreach ($hotels as $group_hotel) {
+
+        /* Itero per ogni chiave degli array associativo */
+        foreach($group_hotel as $key => $hotel) {
+            echo "$key: $hotel <br>";
+        }
+    }
+
 ?>
+
